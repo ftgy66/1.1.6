@@ -1,0 +1,27 @@
+import time
+import random
+
+class ConveyorBelt:
+    def __init__(self):
+        self.belt = []
+
+    def add_item(self, item):
+        self.belt.append(item)
+        print(f"物品 {item} 已添加到传送带上。")
+
+    def process_items(self):
+        while self.belt:
+            item = self.belt.pop(0)
+            print(f"正在处理物品 {item}...")
+            time.sleep(random.uniform(0.5, 2))  # 模拟处理时间
+            print(f"物品 {item} 处理完成。")
+
+if __name__ == "__main__":
+    conveyor_belt = ConveyorBelt()
+    
+    # 添加物品到传送带
+    for i in range(5):
+        conveyor_belt.add_item(f"物品{i+1}")
+
+    # 处理传送带上的物品
+    conveyor_belt.process_items()
